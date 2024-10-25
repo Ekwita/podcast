@@ -2,18 +2,24 @@
 
 namespace App\Enums;
 
-enum UserRoleEnum
+enum UserRoleEnum: string
 {
-    case ADMIN;
-    case MODERATOR;
-    case USER;
+    case ADMIN = 'admin';
+    case MODERATOR = 'moderator';
+    case USER = 'user';
 
-    public function setRole(): string
+    public function setAdminRole(): UserRoleEnum
     {
-        return match ($this) {
-            self::ADMIN => 'admin',
-            self::MODERATOR => 'moderator',
-            self::USER => 'user',
-        };
+        return self::ADMIN;
+    }
+
+    public function setModeratorRole(): UserRoleEnum
+    {
+        return self::MODERATOR;
+    }
+
+    public function setUserRole(): UserRoleEnum
+    {
+        return self::USER;
     }
 }

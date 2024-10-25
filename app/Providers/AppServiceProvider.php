@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Interfaces\Services\IEpisode;
+use App\Services\EpisodeService;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(IEpisode::class, EpisodeService::class);
     }
 
     /**
